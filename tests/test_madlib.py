@@ -1,6 +1,5 @@
 import pytest
-from madlib_cli.madlib import read_template
-#, parse_template, merge
+from madlib_cli.madlib import read_template, parse_template,merge
 
 
 def test_read_template_returns_stripped_string():
@@ -10,15 +9,15 @@ def test_read_template_returns_stripped_string():
 
 
 # @pytest.mark.skip("pending")
-# def test_parse_template():
-#     actual_stripped, actual_parts = parse_template(
-#         "It was a {Adjective} and {Adjective} {Noun}."
-#     )
-#     expected_stripped = "It was a {} and {} {}."
-#     expected_parts = ("Adjective", "Adjective", "Noun")
+def test_parse_template():
+    actual_stripped, actual_parts = parse_template(
+        "It was a {Adjective} and {Adjective} {Noun}."
+    )
+    expected_stripped = "It was a {} and {} {}."
+    expected_parts = ("Adjective", "Adjective", "Noun")
 
-#     assert actual_stripped == expected_stripped
-#     assert actual_parts == expected_parts
+    assert actual_stripped == expected_stripped
+    assert actual_parts == expected_parts
 
 
 # @pytest.mark.skip("pending")
