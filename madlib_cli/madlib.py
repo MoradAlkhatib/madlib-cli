@@ -32,7 +32,8 @@ def parse_template(text):
     return (actual_stripped,actual_parts)
     
     
-
+def merge(text,tep):
+    return text.format(*tep)
 
 
 parse_template("It was a {Adjective} and {Adjective} {Noun}.")
