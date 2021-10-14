@@ -1,7 +1,12 @@
 
 import re
 
-print("Welcome You are in the Madlib Game")
+print("""        *******************
+        *******Welcome****** 
+***********You are in the Madlib Game ********* 
+***********We Hope You'r Ready To play With Us ******
+###########################################################
+""")
 
 def read_template(path):
     """ function how read file from the url
@@ -51,16 +56,17 @@ def create_file(result):
 """ this function that make interact with user 
 and this function will be tack it tomorrow so i will make it as a commant 
 """
-# def get_data():
-#     text = read_template("assets/dark_and_stormy_night_template.txt")
-#     stripped_text, parts_tuple = parse_template(text)
-#     user_input = []
+def get_data():
+    text = read_template("assets/dark_and_stormy_night_template.txt")
+    stripped_text, parts_tuple = parse_template(text)
+    user_input = []
+    
+    for i in range(len(parts_tuple)):
+        x = input('enter a {} > '.format(parts_tuple[i]))
+        user_input.append(x)
+    result = stripped_text.format(*user_input)
+    print(result)
+    create_file(result)
 
-#     for i in range(len(parts_tuple)):
-#         x = input('enter a {} > '.format(parts_tuple[i]))
-#         user_input.append(x)
-#     result = stripped_text.format(*user_input)
-#     print(result)
-#     create_file(result)
 
-# get_data()
+get_data()
