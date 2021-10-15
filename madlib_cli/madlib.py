@@ -6,6 +6,7 @@ print("""        *******************
 ***********You are in the Madlib Game ********* 
 ***********We Hope You'r Ready To play With Us ******
 ###########################################################
+This game is tack some words from you like none , verb ,adjective so on ........ 
 """)
 
 def read_template(path):
@@ -13,7 +14,7 @@ def read_template(path):
         and return what that file have 
     """ 
     a=open(path)
-    return a.read()
+    return a.read().strip("\n")
 
 # this function tack a text as a parameter
 def parse_template(text):
@@ -21,7 +22,7 @@ def parse_template(text):
     actual_parts=[]
     #split the text to the char
     x=text.split(' ')
-    print(x)
+    
     # made regex to check to check on {something} or {something}.
     reg=r"^{\w+}|\.$"
     # loop over the x and x is the array have the text after split it 
@@ -49,15 +50,15 @@ def merge(text,tep):
     return text.format(*tep)
 
 # this write inside my file  that founded assets/make_me_a_video_game_output_from_user.txt
-def create_file(result):
-    with open("assets/dark_and_stormy_night_template.txt", "w") as f:
+def create_file(result ,file_to_write_on_it):
+    with open(file_to_write_on_it, "w") as f:
         f.write(result)
         #dark_and_stormy_night_template
 """ this function that make interact with user 
-and this function will be tack it tomorrow so i will make it as a commant 
+that tack to parameter one for read file to game and onther to write and  save output of game 
 """
-def get_data():
-    text = read_template("assets/dark_and_stormy_night_template.txt")
+def start_game(file_toRead_game,file_toWrite_game):
+    text = read_template(file_toRead_game)
     stripped_text, parts_tuple = parse_template(text)
     user_input = []
     
@@ -65,8 +66,19 @@ def get_data():
         x = input('enter a {} > '.format(parts_tuple[i]))
         user_input.append(x)
     result = stripped_text.format(*user_input)
-    print(result)
-    create_file(result)
+    print(f"this is the story you wrote it \n{result}")
+    create_file(result,file_toWrite_game)
 
 
-get_data()
+# start play game from here 
+ask_user_to_play=input("Now, are you like to try midlab Game>>")
+if ask_user_to_play=='n' or ask_user_to_play=='no':
+    print("So maybe you you can try in the next time Bye Bye.")
+else:
+    start_game("assets/madlib_game_file.txt","assets/madlib_game_file_output.txt")
+    ask_user_to_play=input("Now, are you like to try Again with another story>>")
+    if ask_user_to_play=='n' or ask_user_to_play=='no':
+        print("So maybe you you can try in the next time Bye Bye.")
+    else:
+        start_game("assets/madlib_Second_try.txt","assets/madlib_Second_try_output.txt")
+
