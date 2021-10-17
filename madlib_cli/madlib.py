@@ -70,15 +70,8 @@ def start_game(file_toRead_game,file_toWrite_game):
     create_file(result,file_toWrite_game)
 
 
-# start play game from here 
-ask_user_to_play=input("Now, are you like to try midlab Game>>")
-if ask_user_to_play=='n' or ask_user_to_play=='no':
-    print("So maybe you you can try in the next time Bye Bye.")
-else:
-    start_game("assets/madlib_game_file.txt","assets/madlib_game_file_output.txt")
-    ask_user_to_play=input("Now, are you like to try Again with another story>>")
-    if ask_user_to_play=='n' or ask_user_to_play=='no':
-        print("So maybe you you can try in the next time Bye Bye.")
-    else:
-        start_game("assets/madlib_Second_try.txt","assets/madlib_Second_try_output.txt")
 
+    
+  
+if __name__=="__main__":
+    start_game("assets/madlib_game_file.txt","assets/madlib_game_file_output.txt")
